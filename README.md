@@ -7,6 +7,8 @@ IOS 代码校验，一键完善，只需要执行一次命令文件就可以给I
 
 提取项目中得setup.command文件放置到工程的根目录，执行命令 并根据提示操作
 
+> command文件执行无权限 终端 cd到当前目录 执行  chmod +x setup.command
+
 Would you like to use the code check  选中 no 为卸载操作，当不需要代码校验的时候执行此操作
 
 
