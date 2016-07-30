@@ -4,12 +4,14 @@ echo -e "\033[32m---------------------- IOS code check -------------------------
 while :; do echo
 echo -e "Would you like to use the code check ?? [ yes / no ]\n"   
 echo -n ">  "
-read  flag   
+read  flag_normal
+flag=$(echo $flag_normal | tr "[:upper:]" "[:lower:]" )
 if [[ "$flag" == "yes" ]]; then
 	while :; do echo
 		echo -e "What check-style do you want to use?? [ list / window ]\n"   
 		echo -n ">  "
-		read  style                  
+		read  style_normal  
+		style=$(echo $style_normal | tr "[:upper:]" "[:lower:]" )                
 		if [[ "$style" == "list" ]]; then
 
 			echo -e "\033[32m-------------------- setting code check start -----------------------\033[0m\n"
@@ -60,6 +62,6 @@ if [[ "$flag" == "yes" ]]; then
 	fi
 	break
  fi 
-	break
+	
 
   done
