@@ -61,7 +61,9 @@ if [[ "$flag" == "yes" ]]; then
 		 $(rm -rf ".clang-format")
 	fi
 	break
- fi 
-	
+ else
 
+	 continue
+ fi 
+     break
   done
