@@ -23,9 +23,7 @@ if [[ "$flag" == "yes" ]]; then
 		 		$(spacecommander/setup-repo.sh) 
 		 	fi
 		 	echo -e "\033[32m>> setting code checker end \033[0m\n"
-			if [[ -f "podfile" ]]; then
-				 pod install
-			fi
+
 		 	break
 		 elif [[ "$style" == "window" ]]; then
 
@@ -38,9 +36,7 @@ if [[ "$flag" == "yes" ]]; then
 			 	$(spacecommander/setup-repo-window.sh) 
 		 	fi
 		 	echo -e "\033[32m>> setting window code checker end \033[0m\n"
-			if [[ -f "podfile" ]]; then
-				 pod install
-			fi
+
 			break
 		 fi 
 	done
@@ -53,13 +49,16 @@ if [[ "$flag" == "yes" ]]; then
 	if [  -f ".git/hooks/pre-commit" ]; then
 		$(rm -rf ".git/hooks/pre-commit")
 	fi
-	echo -e "\033[32m>> remove the code checker success \033[0m\n"
-	if [[ -f "podfile" ]]; then
-		 pod install
-	fi
+  	sed -i.bak '/codelog=/d' ~/.bash_profile
+  	sed -i.bak '/codereset=/d' ~/.bash_profile
+
 	if [[ -L ".clang-format" ]]; then
 		 $(rm -rf ".clang-format")
 	fi
+	
+	cd ~/Documents &&  $(rm -rf "codeCheckerCache")
+
+	echo -e "\033[32m>> remove the code checker success \033[0m\n"
 	break
  else
 
