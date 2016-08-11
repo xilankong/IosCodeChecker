@@ -2,19 +2,19 @@ cd `dirname $0`
 
 echo -e "\033[32m>> IOS code checker <<\033[0m\n"
 while :; do echo
-echo -e "Would you like to use the code check ?? [ yes / no ]\n"   
+echo -e "Would you like to use the codeChecker ? [ yes / no ]\n"   
 echo -n ">  "
 read  flag_normal
 flag=$(echo $flag_normal | tr "[:upper:]" "[:lower:]" )
 if [[ "$flag" == "yes" ]]; then
 	while :; do echo
-		echo -e "What check-style do you want to use?? [ list / window ]\n"   
+		echo -e "Which style do you need ? [ list / window ]\n"   
 		echo -n ">  "
 		read  style_normal  
 		style=$(echo $style_normal | tr "[:upper:]" "[:lower:]" )                
 		if [[ "$style" == "list" ]]; then
 
-			echo -e "\033[32m>> setting code checker start \033[0m\n"
+			echo -e "\033[32m>> setting list codeChecker start \033[0m\n"
 
 			if [ ! -d "spacecommander" ]; then
 				$(git clone 'https://github.com/xilankong/spacecommander.git')
@@ -22,12 +22,12 @@ if [[ "$flag" == "yes" ]]; then
 			if [ -f "spacecommander/setup-repo.sh" ]; then
 		 		$(spacecommander/setup-repo.sh) 
 		 	fi
-		 	echo -e "\033[32m>> setting code checker end \033[0m\n"
+		 	echo -e "\033[32m>> setting list codeChecker end \033[0m\n"
 
 		 	break
 		 elif [[ "$style" == "window" ]]; then
 
-			echo -e "\033[32m>> setting window code checker start \033[0m\n"
+			echo -e "\033[32m>> setting window codeChecker start \033[0m\n"
 
 			if [ ! -d "spacecommander" ]; then
 				$(git clone 'https://github.com/xilankong/spacecommander.git')
@@ -35,7 +35,7 @@ if [[ "$flag" == "yes" ]]; then
 			if [ -f "spacecommander/setup-repo-window.sh" ]; then
 			 	$(spacecommander/setup-repo-window.sh) 
 		 	fi
-		 	echo -e "\033[32m>> setting window code checker end \033[0m\n"
+		 	echo -e "\033[32m>> setting window codeChecker end \033[0m\n"
 
 			break
 		 fi 
@@ -58,7 +58,7 @@ if [[ "$flag" == "yes" ]]; then
 	
 	cd ~/Documents &&  $(rm -rf "codeCheckerCache")
 
-	echo -e "\033[32m>> remove the code checker success \033[0m\n"
+	echo -e "\033[32m>> remove the codeChecker success \033[0m\n"
 	break
  else
 
